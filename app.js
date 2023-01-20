@@ -1,7 +1,13 @@
 const express = require('express');
 const app = express();
-const port = 3000;
 const bookRouter=require('./controllers/book');
+
+if(process.env.PORT != undefined){
+  port=process.env.PORT;
+}
+else {
+  port='3000';
+}
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
