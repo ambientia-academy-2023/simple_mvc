@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const bookRouter=require('./controllers/book');
 
 app.get('/example1',
     function(request,response){
@@ -8,7 +9,7 @@ app.get('/example1',
         console.log('I am example');
     }
 );
-
+app.use('/book',bookRouter);
 
 
 app.listen(port, () => {
