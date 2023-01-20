@@ -11,3 +11,8 @@ Ja sitten tiedostoon, jossa tarvitaan ympäristömuuttujia rivit
 const dotenv=require('dotenv');
 dotenv.config();
 </pre>
+Ja luodaan sovelluksen juureen tiedosto **.env** ja sinne esimerkiksi rivi
+<pre>
+PORT=4000
+</pre> 
+jolloin muuttujaan viitataan nimellä **process.env.PORT**

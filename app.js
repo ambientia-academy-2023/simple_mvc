@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const bookRouter=require('./controllers/book');
+const dotenv=require('dotenv');
+dotenv.config();
 
 if(process.env.PORT != undefined){
   port=process.env.PORT;
