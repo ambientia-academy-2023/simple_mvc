@@ -3,12 +3,9 @@ const app = express();
 const port = 3000;
 const bookRouter=require('./controllers/book');
 
-app.get('/example1',
-    function(request,response){
-        response.send('I am example');
-        console.log('I am example');
-    }
-);
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
+
 app.use('/book',bookRouter);
 
 

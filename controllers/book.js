@@ -1,36 +1,40 @@
 const express=require('express');
 const controller=express.Router();
+const book=require('../models/book_model');
 
 controller.get('/',
     function(request, response){
-        response.json('Palauttaa kaikki kirjat');
+        let data=book.getAllBooks();
+        response.json(data);
     }
 );
 
 controller.get('/:id',
     function(request, response){
         let id=request.params.id;
-        response.json('Palauttaa kirjan jonka id='+id);
+        let data=book.getOneBook(id);
+        response.json(data);
     }
 );
 
 controller.post('/',
     function(request,response){
-        response.json('Lisää uuden kirjan');
+        let data=book.addBook(request.body);
+        response.json(data);
     }
 );
 
 controller.put('/:id',
     function(request,response){
-        let id=request.params.id;
-        response.json('Muokkaa kirjan jonka id='+id);
+        let data=book.updateBook(request.params.id,request.body);
+        response.json(data);
     }
 );
 
 controller.delete('/:id',
     function(request,response){
-        let id=request.params.id;
-        response.json('Poistaa kirjan jonka id='+id);
+        let data=book.deleteBook(request.params.id);
+        response.json(data);
     }
 );
 
