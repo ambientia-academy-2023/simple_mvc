@@ -12,6 +12,10 @@ else {
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
+app.get('/',
+function(request,response){
+  response.send("MVC REST API Example");
+});
 app.use('/book',bookRouter);
 
 
